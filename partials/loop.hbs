@@ -1,0 +1,39 @@
+
+
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+<article class="{{post_class}}">
+    <header class="post-header">
+    {{#if @first}}
+      <div class="new btn btn-success btn-xs">NEW</div>
+    {{/if}} 
+        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2> 
+       
+    </header>
+
+    <footer class="post-meta">
+        {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}
+        <h3>
+        {{author}}
+        {{tags prefix=" on "}}
+        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        </h3>
+    </footer>
+
+    <section class="post-excerpt">
+
+      
+
+    </section>
+
+
+
+</article>
+{{/foreach}}
+
+{{! Previous/next page links - displayed on every page }}
+<div class="text-center">
+{{pagination}}
+</div>
+
+
